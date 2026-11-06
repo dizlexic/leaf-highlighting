@@ -1,0 +1,20 @@
+<templateSet group="Leaf">
+    <template name="if" value="#if($CONDITION$):&#10;    $END$&#10;#endif" description="Leaf if block" toReformat="false" toShortenFQNames="false">
+        <variable name="CONDITION" expression="" defaultValue="&quot;&quot;" alwaysStopAt="true" />
+        <context><option name="LEAF" value="true" /></context>
+    </template>
+    <template name="ife" value="#if($CONDITION$):&#10;    $THEN$&#10;#else:&#10;    $END$&#10;#endif" description="Leaf if/else block" toReformat="false" toShortenFQNames="false">
+        <variable name="CONDITION" expression="" defaultValue="&quot;&quot;" alwaysStopAt="true" />
+        <variable name="THEN" expression="" defaultValue="&quot;&quot;" alwaysStopAt="true" />
+        <context><option name="LEAF" value="true" /></context>
+    </template>
+    <template name="for" value="#for($ITEM$ in $COLLECTION$):&#10;    $END$&#10;#endfor" description="Leaf for block" toReformat="false" toShortenFQNames="false">
+        <variable name="ITEM" expression="" defaultValue="&quot;&quot;" alwaysStopAt="true" />
+        <variable name="COLLECTION" expression="" defaultValue="&quot;&quot;" alwaysStopAt="true" />
+        <context><option name="LEAF" value="true" /></context>
+    </template>
+    <template name="out" value="#($EXPRESSION$)$END$" description="Leaf interpolation" toReformat="false" toShortenFQNames="false">
+        <variable name="EXPRESSION" expression="" defaultValue="&quot;&quot;" alwaysStopAt="true" />
+        <context><option name="LEAF" value="true" /></context>
+    </template>
+</templateSet>

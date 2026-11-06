@@ -1,0 +1,29 @@
+<idea-plugin>
+    <id>com.github.leafhighlighting</id>
+    <name>Leaf Syntax Highlighting</name>
+    <vendor>Leaf Syntax Highlighting</vendor>
+    <description><![CDATA[
+        <p>Syntax highlighting for <a href="https://github.com/vapor/leaf-kit">Leaf</a> template files, with HTML highlighting preserved for template markup.
+        Supports tag names, interpolations, nested expressions, and customizable syntax colors. Includes completion for common built-in tags,
+        multiline block folding, diagnostics for unmatched or unclosed tags, and Leaf live templates.</p>
+        <p>If you find this plugin useful, <a href="https://www.buymeacoffee.com/dizlexic">buy me a coffee</a>.</p>
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.xml</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <fileType name="Leaf" language="Leaf" implementationClass="com.github.leafhighlighting.LeafFileType"
+                  fieldName="INSTANCE" extensions="leaf" />
+        <lang.syntaxHighlighterFactory language="Leaf"
+                                       implementationClass="com.github.leafhighlighting.LeafSyntaxHighlighterFactory" />
+        <colorSettingsPage implementation="com.github.leafhighlighting.LeafColorSettingsPage" />
+        <completion.contributor language="Leaf" implementationClass="com.github.leafhighlighting.LeafCompletionContributor" />
+        <lang.foldingBuilder language="Leaf" implementationClass="com.github.leafhighlighting.LeafFoldingBuilder" />
+        <annotator language="Leaf" implementationClass="com.github.leafhighlighting.LeafTagAnnotator" />
+    </extensions>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <defaultLiveTemplates file="liveTemplates/Leaf.xml" />
+    </extensions>
+</idea-plugin>
